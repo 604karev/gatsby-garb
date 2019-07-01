@@ -10,5 +10,22 @@ exports.onCreateNode = ({node, getNode, actions}) => {
             value: slug
         })
     }
+};
 
+exports.createPages = async ({graphql}) => {
+    const response = await graphql(`
+        {
+            allMarkdownRemark {
+                edges {
+                    node {
+                        fields {
+                            slug
+                        }
+                    }
+                }
+                totalCount
+            }
+        }
+        `);
+    const posts = response.data.allMarkdownRemark.edges;
 };
