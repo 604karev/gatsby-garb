@@ -14,6 +14,9 @@ export default () => {
                             data
                         }
                         excerpt
+                        fields{
+                            slug
+                        }
                     }
                 }
                 totalCount
@@ -40,13 +43,18 @@ export default () => {
                                             padding: '10px',
                                             margin: '10px auto 20px'
                                         }} key={node.id}>
-                                            <h3>{node.frontmatter.title} <span
+                                            <Link
+                                                style={{float: 'left'}}
+                                                to={`/posts/${node.fields.slug}`}>
+                                                <h3>{node.frontmatter.title}</h3>
+                                            </Link>
+                                            <span
                                                 style={{
                                                     color: '#bbb',
-                                                    fontSize: '20px'
+                                                    fontSize: '20px',
+
                                                 }}> - {node.frontmatter.data}</span>
-                                            </h3>
-                                            <p>{node.excerpt}</p>
+                                            <p style={{clear: 'left'}}>{node.excerpt}</p>
 
                                         </div>)
                                 }
