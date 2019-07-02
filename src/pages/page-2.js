@@ -17,7 +17,7 @@ const SecondPage = () => (
             </li>
             <li>
                 <h3>
-                    <Link to="/posts/page-3">Go to Images data page</Link>
+                    <Link to="/page-3">Go to Images data page</Link>
                 </h3>
             </li>
             <li>
